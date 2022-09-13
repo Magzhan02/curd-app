@@ -1,0 +1,17 @@
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: #363636;
+    color: #ffff;
+
+    .btn{
+        background:#5cb85c;
+        color: #ffff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}

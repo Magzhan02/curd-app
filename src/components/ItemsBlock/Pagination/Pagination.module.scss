@@ -1,0 +1,32 @@
+
+.pagination{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    padding: 20px 10px;
+
+    img{
+        width: 20px;
+        height: 20px;
+    }
+
+    .prev{
+        transform: rotate3d(0, 1, 0, 180deg);
+    }
+
+    .btn{
+        display: inherit;
+        cursor: pointer;
+
+        button{
+            background: none;
+            border: none;
+            color: rgb(142, 139, 139);
+            margin:0 5px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+       
+    }
+}
