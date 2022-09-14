@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './Search.module.scss';
 
-const Search = () => {
+const Search = ({ onChangeSearch }) => {
   return (
     <div className={styles.search}>
       <svg
@@ -15,7 +15,7 @@ const Search = () => {
           fill="#323232"
         />
       </svg>
-      <input type="text" placeholder="Поиск товаров" />
+      <input type="text" placeholder="Поиск товаров" onChange={(e) => onChangeSearch(e)} />
       <svg
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
