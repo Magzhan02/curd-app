@@ -2,63 +2,83 @@
   "items": [
     {
       "id": 1,
-      "name": "Мужские кроссовки Saucony Shadow 5000",
+      "name": "Кроссовки Saucony Shadow 5000",
       "price": 12699,
-      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/1.jpg"
+      "status": "Активный",
+      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/1.jpg",
+      "text": ""
     },
     {
       "id": 2,
-      "name": "Мужские кроссовки Nike Lebron Witness VI",
+      "name": "Кроссовки Nike Lebron Witness VI",
       "price": 9999,
-      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/2.jpg"
+      "status": "Активный",
+      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/2.jpg",
+      "text": ""
     },
     {
       "id": 3,
       "name": "Кроссовки PUMA x Butter Goods Slipstream Lo Trainers",
       "price": 10499,
-      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/3.jpg"
+      "status": "Активный",
+      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/3.jpg",
+      "text": ""
     },
     {
       "id": 4,
-      "name": "Мужские кроссовки The North Face Infinite 160",
+      "name": "Кроссовки The North Face Infinite 160",
       "price": 15299,
-      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/4.jpg"
+      "status": "Активный",
+      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/4.jpg",
+      "text": ""
     },
     {
       "id": 5,
-      "name": "Мужские кроссовки Jordan One Take III",
+      "name": "Кроссовки Jordan One Take III",
       "price": 8999,
-      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/5.jpg"
+      "status": "Активный",
+      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/5.jpg",
+      "text": ""
     },
     {
       "id": 6,
-      "name": "Мужские кроссовки Jordan One Take 3",
+      "name": "Кроссовки Jordan One Take 3",
       "price": 8999,
-      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/6.jpg"
+      "status": "Активный",
+      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/6.jpg",
+      "text": ""
     },
     {
       "id": 7,
-      "name": "Мужские Кроссовки Jordan Air Jordan 11 ",
+      "name": "Кроссовки Jordan Air Jordan 11 ",
       "price": 10799,
-      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/7.jpg"
+      "status": "Активный",
+      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/7.jpg",
+      "text": ""
     },
     {
       "id": 8,
-      "name": "Мужские кроссовки Nike Blazer Mid '77",
+      "name": "Кроссовки Nike Blazer Mid '77",
       "price": 8999,
-      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/8.jpg"
+      "status": "Активный",
+      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/8.jpg",
+      "text": ""
     },
     {
       "id": 9,
-      "name": "Мужские кроссовки Nike KD 14",
+      "name": "Кроссовки Nike KD 14",
       "price": 13499,
-      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/9.jpg"
+      "status": "Активный",
+      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/9.jpg",
+      "text": ""
     },
     {
       "id": 10,
-      "name": "Мужские кроссовки Nike Zoom Freak 3",
+      "name": "Кроссовки Nike Zoom Freak 3",
       "price": 11299,
-      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/10.jpg"
+      "status": "Активный",
+      "imageUrl": "https://raw.githubusercontent.com/Magzhan02/React-Shop/main/public/img/sneakers/10.jpg",
+      "text": ""
     }
   ]
 }

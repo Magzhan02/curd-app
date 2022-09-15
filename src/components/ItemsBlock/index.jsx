@@ -11,12 +11,14 @@ import Pagination from './Pagination/Pagination';
 
 const ItemsBlock = () => {
   const dispatch = useDispatch();
-  const { items, currentPage } = useSelector((state) => state.items);
+  const { items, currentPage, isLoaded } = useSelector((state) => state.items);
   const [searchValue, setSearchValue] = React.useState('');
 
-  const onChangePage = (value) => {
-    if (value !== currentPage) {
-      dispatch(setCurrentPage(value));
+  const onChangePage = (bool) => {
+    if (bool) {
+      dispatch(setCurrentPage(currentPage + 1));
+    } else if (bool === false && currentPage > 1) {
+      dispatch(setCurrentPage(currentPage - 1));
     }
   };
 
@@ -32,10 +34,13 @@ const ItemsBlock = () => {
         <div className={styles.status}>Статус</div>
         <div className={styles.price}>Цена</div>
       </section>
-      {items &&
+      {isLoaded ? (
         items
           .filter((obj) => obj.name.toLowerCase().includes(searchValue.toLowerCase()))
-          .map((obj) => <ProductSection key={obj.id} data={obj} />)}
+          .map((obj) => <ProductSection key={Number(obj.id)} data={obj} />)
+      ) : (
+        <div>Loading...</div>
+      )}
       <Pagination onChangePage={onChangePage} currentPage={currentPage} />
     </header>
   );

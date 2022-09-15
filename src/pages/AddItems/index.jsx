@@ -1,21 +1,29 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-import { convertToRaw } from 'draft-js';
-import { Editor } from 'react-draft-wysiwyg';
-import draftToHtml from 'draftjs-to-html';
-import htmlToDraft from 'html-to-draftjs';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import Editor from '../../components/Editor';
+import Price from '../../components/Price';
+
+import { submitProduct } from '../../redux/items/asyncAction';
 
 import styles from './AddItems.module.scss';
 
 const AddItems = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [title, setTitle] = React.useState('');
   const [image, setImage] = React.useState();
-  const [imageURL, setImageURL] = React.useState();
-  const [editorState, setEditorState] = React.useState();
+  const [imageUrl, setImageURL] = React.useState();
   const [content, setContent] = React.useState();
+  const [show, setShow] = React.useState(false);
+  const [onePrice, setOnePrice] = React.useState();
+
+  const [citiesPrice, setCitiesPrice] = React.useState();
+  const [cityOne, setCityOne] = React.useState();
+  const [cityTwo, setCityTwo] = React.useState();
 
   const inputRef = React.useRef(null);
   const fileReader = new FileReader();
@@ -30,19 +38,71 @@ const AddItems = () => {
     fileReader.readAsDataURL(file);
   };
 
+  const onSubmit = async () => {
+    const fields = {
+      name: title,
+      price: onePrice ? onePrice : citiesPrice,
+      status: 'Активный',
+      imageUrl,
+      text: content,
+    };
+
+    const onSubmitProduct = async () => {
+      dispatch(submitProduct(fields));
+      navigate('/');
+    };
+    onSubmitProduct();
+  };
+
+  const saveCitiesPrice = () => {
+    if (onePrice) {
+      alert('Цены установлены');
+    } else if (cityOne && cityTwo) {
+      const arr = cityOne.concat(cityTwo);
+      setCitiesPrice(arr);
+      alert('Цены установлены');
+    } else {
+      alert('Не все цены установлены');
+    }
+  };
+
+  const onChangeText = React.useCallback(
+    (value) => {
+      setContent(value);
+    },
+    [content],
+  );
+
   const onClickRemoveImage = () => {
     setImage('');
   };
 
-  const onChangeTitle = (e) => {
-    setTitle(e.target.value);
-  };
+  const onChangeTitle = React.useCallback(
+    (e) => {
+      setTitle(e.target.value);
+    },
+    [title],
+  );
+
+  const onChangeInput = React.useCallback(
+    (e) => {
+      setShow(e.target.checked);
+    },
+    [show],
+  );
+
+  const onChangePrice = React.useCallback(
+    (e) => {
+      setOnePrice(e.target.value);
+    },
+    [onePrice],
+  );
 
   return (
     <div className={styles.wrapp}>
       {image ? (
         <div className={styles.img}>
-          <img src={imageURL} alt={title} />
+          <img src={imageUrl} alt={title} />
           <button className={styles.delete} onClick={onClickRemoveImage}>
             Удалить файл
           </button>
@@ -64,35 +124,21 @@ const AddItems = () => {
           placeholder="Название товара"
         />
       </div>
-
-      <Editor
-        editorState={editorState}
-        wrapperClassName={styles.card}
-        editorClassName={styles.body}
-        placeholder="Описание товара"
-        onEditorStateChange={(newState) => {
-          setEditorState(newState);
-          setContent(draftToHtml(convertToRaw(newState.getCurrentContent())));
-        }}
-        toolbar={{
-          options: [
-            'inline',
-            'blockType',
-            'fontSize',
-            'list',
-            'textAlign',
-            'history',
-            'embedded',
-            'emoji',
-            'image',
-          ],
-          inline: { inDropdown: true },
-          list: { inDropdown: true },
-          textAlign: { inDropdown: true },
-          link: { inDropdown: true },
-          history: { inDropdown: true },
-        }}
+      <Price
+        onChangeInput={onChangeInput}
+        onChangePrice={onChangePrice}
+        saveCitiesPrice={saveCitiesPrice}
+        setCityOne={setCityOne}
+        setCityTwo={setCityTwo}
+        show={show}
       />
+      <Editor onChangeText={onChangeText} content={content} />
+      <div className={styles.btngroup}>
+        <button className={styles.cancel}>Отмена</button>
+        <button className={styles.save} onClick={onSubmit}>
+          Сохранить
+        </button>
+      </div>
     </div>
   );
 };
