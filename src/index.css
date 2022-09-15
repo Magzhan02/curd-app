@@ -5,6 +5,7 @@
   list-style: none;
   outline: none;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 html {
@@ -15,7 +16,7 @@ html {
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  color: #202124;
   font-size: 15px;
   font-weight: 400;
+  color: #202124;
 }

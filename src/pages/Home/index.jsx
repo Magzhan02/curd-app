@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Header from '../../components/Header';
 import ItemsBlock from '../../components/ItemsBlock';
 
 import { fetchProduct } from '../../redux/items/asyncAction';
@@ -22,7 +21,6 @@ const Home = () => {
 
   return (
     <div className="home">
-      <Header />
       <ItemsBlock />
     </div>
   );

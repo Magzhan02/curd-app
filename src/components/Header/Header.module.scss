@@ -6,12 +6,17 @@
     background: #363636;
     color: #ffff;
 
-    .btn{
-        background:#5cb85c;
+    h1{
         color: #ffff;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 5px;
-        cursor: pointer;
     }
+
+        .btn{
+            background:#5cb85c;
+            color: #ffff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+   
 }

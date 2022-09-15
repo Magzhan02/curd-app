@@ -16,6 +16,7 @@ const itemsSlice = createSlice({
       state.currentPage = action.payload;
     },
   },
+
   extraReducers(builder) {
     builder.addCase(fetchProduct.pending, (state, action) => {
       state.items = [];
