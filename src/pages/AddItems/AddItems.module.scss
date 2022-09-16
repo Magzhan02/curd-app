@@ -46,17 +46,39 @@
         justify-content: space-between;
 
         button{
-            background: #5cb85c;
-            margin: 10px 0;
+            background:#5cb85c;
+            color: #ffff;
             border: none;
             padding: 10px;
-            border-radius: 8px;
-            color: #ffff;
             font-size: 16px;
+            border-radius: 5px;
             cursor: pointer;
+            z-index: 999;
         }
         .cancel{
             background: #e95547;
+        }
+    }
+
+    .status{
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ccc;
+        width: 400px;
+        height: auto;
+        padding: 10px 15px;
+        border-radius:8px;
+        margin-top: 15px;
+
+        select{
+          border: 1px solid #ccc;
+          width: 200px;
+          height: auto;
+          padding: 10px 15px;
+          border-radius:8px;
+          margin-top: 15px;
+          overflow-y: auto;
+          font-size: 16px;
         }
     }
 }

@@ -1,8 +1,19 @@
 import React from 'react';
 
+import { useDispatch } from 'react-redux';
+import { FiX, FiEdit2 } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+
 import styles from './ItemsBlock.module.scss';
 
+import { deleteItems } from '../../redux/items/asyncAction';
+
 const ProductSection = ({ data }) => {
+  const dispatch = useDispatch();
+
+  const onClickDelete = () => {
+    dispatch(deleteItems(data.id));
+  };
   return (
     <section className={styles.items}>
       <div className={styles.img}>
@@ -10,12 +21,18 @@ const ProductSection = ({ data }) => {
       </div>
       <div className={styles.title}>{data.name}</div>
       <div className={styles.status}>{data.status}</div>
-      <div className={styles.price}>{data.price} ₸</div>
+      <div className={styles.price}>{data.price[0].price} ₸</div>
       <div className={styles.controls}>
-        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="#323232">
-          <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" />
-        </svg>
+        <Link to={`/addItems/${data.id}/edit`}>
+          <FiEdit2 />
+        </Link>
+        <FiX onClick={onClickDelete} />
       </div>
+      {data.text && (
+        <div className={styles.descr}>
+          <p>{data.text}</p>
+        </div>
+      )}
     </section>
   );
 };

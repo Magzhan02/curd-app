@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import axios from '../../axios';
 
 export const fetchProduct = createAsyncThunk('items/fetchProduct', async (params) => {
   const { currentPage } = params;
-  const { data } = await axios.get('https://6320a58ae3bdd81d8eff1015.mockapi.io/items', {
+  const { data } = await axios.get('/items', {
     params: {
       page: currentPage,
       limit: 5,
@@ -12,6 +12,6 @@ export const fetchProduct = createAsyncThunk('items/fetchProduct', async (params
   return data;
 });
 
-export const submitProduct = createAsyncThunk('items/submitProduct', async (fields) => {
-  await axios.post('https://6320a58ae3bdd81d8eff1015.mockapi.io/items', fields);
+export const deleteItems = createAsyncThunk('posts/deleteItems', (id) => {
+  axios.delete(`https://6320a58ae3bdd81d8eff1015.mockapi.io/items/${id}`);
 });

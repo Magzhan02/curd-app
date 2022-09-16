@@ -2,7 +2,13 @@ import React from 'react';
 
 import styles from './Price.module.scss';
 
-const Price = ({ onChangeInput, onChangePrice, saveCitiesPrice, setCityOne, setCityTwo, show }) => {
+const Price = ({ onChangePrice, saveCitiesPrice, setCityOne, setCityTwo, citiesPrice }) => {
+  const [show, setShow] = React.useState(false);
+
+  const onChangeInput = (e) => {
+    setShow(e.target.checked);
+  };
+
   return (
     <div className={styles.price}>
       <span>Цена</span>
@@ -13,6 +19,7 @@ const Price = ({ onChangeInput, onChangePrice, saveCitiesPrice, setCityOne, setC
         </div>
         <input
           type="number"
+          value={citiesPrice && citiesPrice[0].price}
           className={styles.count}
           placeholder="Цена"
           onChange={(e) => onChangePrice(e)}

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchProduct } from './asyncAction';
+import { fetchProduct, deleteItems } from './asyncAction';
 
 const initialState = {
   items: [],
@@ -30,6 +30,10 @@ const itemsSlice = createSlice({
     builder.addCase(fetchProduct.rejected, (state, action) => {
       state.items = [];
       state.isLoaded = false;
+    });
+
+    builder.addCase(deleteItems.pending, (state, action) => {
+      state.items = state.items.filter((obj) => obj.id !== action.meta.arg);
     });
   },
 });
