@@ -26,9 +26,13 @@ const ItemsBlock = () => {
     setSearchValue(e.target.value);
   };
 
+  const clearSearch = () => {
+    setSearchValue('');
+  };
+
   return (
     <header className={styles.container}>
-      <Search onChangeSearch={onChangeSearch} />
+      <Search onChangeSearch={onChangeSearch} searchValue={searchValue} clearSearch={clearSearch} />
       <section className={styles.header}>
         <div className={styles.title}>Название</div>
         <div className={styles.status}>Статус</div>
